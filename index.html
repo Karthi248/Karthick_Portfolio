@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karthick K | Resume</title>
+<style>
+:root{--ink:#222;--muted:#595959;--accent:#1f4e79;--line:#bfbfbf}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#fff}
+body{color:var(--ink);font:16px/1.65 Calibri,"Segoe UI",system-ui,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid #2f7fd1;outline-offset:2px}
+.page{min-height:100vh;padding:0 clamp(20px,7vw,120px) 48px}
+header{text-align:center;padding:clamp(28px,5vw,56px) 0 18px;border-bottom:2px solid var(--accent)}
+h1{margin:0 0 8px;font-size:clamp(2.4rem,6vw,3.4rem);line-height:1.1;color:var(--accent);letter-spacing:-.01em}
+.contact{color:var(--muted)}
+.contact span+span::before{content:"|";margin:0 12px;color:var(--line)}
+h2{font-size:1.1rem;color:var(--accent);margin:28px 0 12px;padding-bottom:4px;border-bottom:1px solid var(--line);letter-spacing:.02em}
+.row{display:flex;justify-content:space-between;gap:4px 16px;flex-wrap:wrap}
+.sub{color:var(--muted)}
+.entry{margin-bottom:14px}
+ul{margin:4px 0 0;padding-left:22px}
+li{margin-bottom:4px}
+.skill{margin:0 0 4px}
+.skill b{display:inline-block;min-width:150px}
+@media(max-width:640px){
+  .contact span{display:block}.contact span+span::before{content:none}
+}
+@media print{.page{padding:0}}
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <h1>Karthick K</h1>
+    <div class="contact">
+      <span>Coimbatore, Tamil Nadu</span>
+      <span><a href="mailto:karthickpadmavathi10@gmail.com">karthickpadmavathi10@gmail.com</a></span>
+      <span><a href="https://www.linkedin.com/in/karthick-k-791883380">LinkedIn</a></span>
+      <span><a href="https://github.com/Karthi248">GitHub</a></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>EDUCATION</h2>
+    <div class="entry">
+      <div class="row"><strong>B.E. Computer Science and Engineering, Government College of Technology, Coimbatore</strong><span class="sub">Expected 2029</span></div>
+      <div class="sub">2nd Year | CGPA: 9.32</div>
+    </div>
+    <div class="entry">
+      <div class="row"><strong>HSC (12th), Oasis Matriculation Higher Secondary School</strong><span class="sub">2024 – 2025</span></div>
+      <div class="sub">96.6%</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>SKILLS</h2>
+    <p class="skill"><b>Programming:</b> C, Python, Java (Basics)</p>
+    <p class="skill"><b>Soft skills:</b> Communication, Problem Solving, Team Coordination &amp; Leadership</p>
+  </section>
+
+  <section>
+    <h2>PROJECTS</h2>
+    <div class="entry">
+      <div class="row"><strong>Bus Scam Shield: Scam Website Detector (Chrome Extension)</strong><span class="sub">Oct 2026</span></div>
+      <div class="sub">NextGen AI Hacks 2026, 24-hour hackathon, Rajalakshmi Engineering College | Team Leader (team of 4)</div>
+      <ul>
+        <li>Built a Chrome extension that checks the travel site a user is visiting and shows a green, yellow or red banner before they pay.</li>
+        <li>Scores each site on 8 checks (domain age, SSL, look-alike domains, payment gateway, operator and GST/PAN verification) combined with a Random Forest model, Claude LLM analysis and Google Safe Browsing.</li>
+        <li>Moved all API keys and checks to a Flask backend after jury feedback, so no key is exposed in the extension. Also added RSA-signed QR tickets and a scalping-risk check.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><strong>PlantCare: Crop Disease Detection App</strong><span class="sub">Smart India Hackathon 2026</span></div>
+      <div class="sub">Problem Statement SIH26131: Early detection and management of crop diseases and pest infestations (Agriculture, FoodTech &amp; Rural Development)</div>
+      <ul>
+        <li>Designed a mobile solution where a farmer photographs a leaf and gets the disease name and remedy in seconds, in their own regional language through voice output.</li>
+        <li>Trained a MobileNetV2 transfer-learning model on the PlantVillage dataset (54,000+ images) that reached 93% accuracy across 38 crop disease classes.</li>
+        <li>Fixed a 36x class imbalance with class-weighted loss instead of duplicating images, and used rotate, zoom and flip augmentation to match real farm photos.</li>
+        <li>Added confidence-aware results: below 60% confidence the app asks for a clearer photo instead of giving an unreliable diagnosis.</li>
+        <li>Converted the model to TensorFlow Lite so detection runs offline on the phone, for farmers with little or no internet.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><strong>Rice Type Classification</strong><span class="sub">Seminar project</span></div>
+      <ul>
+        <li>Predicted rice type from 10 grain-shape features (18,185 grains) by comparing 6 classifiers; SVM performed best at 99.04% cross-validated accuracy.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>CERTIFICATIONS</h2>
+    <ul>
+      <li>Python for Data Science, NPTEL (IIT Madras), Elite certificate, score 84% (Jul – Aug 2026)</li>
+      <li>FLY-Scholar (Finding the Leader in You), Competitiveness Mindset Institute, USA (Aug 2026)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>CLUBS AND ACTIVITIES</h2>
+    <ul>
+      <li>Member, gSARC (Team ETA), Government College of Technology</li>
+      <li>Volunteer, National Service Scheme (NSS), Government College of Technology</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
