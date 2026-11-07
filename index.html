@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Karthick K – Computer Science Student & Builder</title>
-  <meta name="description" content="Portfolio of Karthick K, a second-year CSE student building AI projects: a scam website detector and an offline crop disease detector.">
+  <title>Karthick K – AI Projects & Hackathon Builder</title>
+  <meta name="description" content="Karthick K, second-year CSE student. Projects: Bus Scam Shield, PlantCare and Rice Type Classification.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="bg" aria-hidden="true"><span></span><span></span><span></span></div>
 
 <header class="nav">
   <a href="#home" class="logo">Karthick K</a>
   <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">Menu</button>
   <nav id="navLinks">
-    <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
@@ -26,137 +26,107 @@
 
 <main>
   <section class="hero" id="home">
-    <p class="hello">Hi, I'm</p>
+    <p class="hello">Hi, I’m</p>
     <h1>Karthick K</h1>
-    <p class="role">Second-year Computer Science student who builds AI projects and leads hackathon teams.</p>
+    <p class="role">Second-year CSE student who <span id="typed"></span><span class="caret"></span></p>
     <div class="actions">
       <a class="btn primary" href="#projects">See my projects</a>
       <a class="btn" href="#contact">Contact me</a>
     </div>
     <ul class="facts">
-      <li><strong>9.32</strong><span>CGPA</span></li>
-      <li><strong>2</strong><span>Hackathons led</span></li>
-      <li><strong>93%</strong><span>Crop disease model accuracy</span></li>
+      <li><strong data-count="9.32" data-dec="2">0</strong><span>CGPA</span></li>
+      <li><strong data-count="3">0</strong><span>Projects built</span></li>
+      <li><strong data-count="2">0</strong><span>Hackathons led</span></li>
+      <li><strong data-count="99.04" data-dec="2" data-suffix="%">0</strong><span>Best CV accuracy (rice)</span></li>
     </ul>
   </section>
 
-  <section id="about">
-    <h2>About me</h2>
-    <p class="lead">I'm studying B.E. Computer Science and Engineering at Government College of Technology, Coimbatore. I like turning a real problem into a working prototype, and I learn the most when I build something and then fix what breaks.</p>
-    <p class="lead">My first two hackathons taught me a lot: how to lead a team, how to take a jury's feedback and rebuild overnight, and why you should always be honest about what a prototype can and cannot do.</p>
-  </section>
-
   <section id="projects">
-    <h2>Projects</h2>
+    <h2 class="reveal">Projects</h2>
+    <p class="lead reveal">Three projects, each starting from a real problem. Each one shows what I built, what broke, and what it still cannot do.</p>
 
-    <article class="project">
-      <div class="meta">
+    <article class="project reveal">
+      <div class="head">
         <h3>Bus Scam Shield</h3>
-        <p>Chrome extension that spots fake bus-booking sites</p>
-        <span class="tag">NextGen AI Hacks 2026 · Team Leader · Team of 4</span>
+        <span class="tag">NextGen AI Hacks 2026 · 24 hours · Team Leader (team of 4)</span>
       </div>
-      <div class="body">
-        <ul>
-          <li>Shows a green, yellow or red banner on a travel site before the user pays.</li>
-          <li>Scores each site on eight checks, including domain age, SSL, look-alike domains, payment gateway and operator and GST/PAN verification.</li>
-          <li>Combines a Random Forest model, Claude LLM analysis and Google Safe Browsing into one verdict.</li>
-          <li>After jury feedback, moved all API keys and checks to a Flask backend so no key is exposed in the extension.</li>
-          <li>Also built RSA-signed QR tickets, a scalping-risk check and a user reporting channel.</li>
-        </ul>
-        <p class="chips"><span>Python</span><span>Flask</span><span>Chrome Extension</span><span>Random Forest</span><span>Claude API</span></p>
-        <p class="links"><a href="https://github.com/Karthi248/bus-scam-shield" target="_blank" rel="noopener">View on GitHub</a></p>
+      <p class="sum">A Chrome extension and backend that warn a passenger before they pay on a fake bus-booking site.</p>
+      <div class="flow">
+        <span>Travel site</span><b>→</b><span>Extension</span><b>→</b><span>Flask backend</span><b>→</b><span>Risk verdict</span><b>→</b><span>Green / yellow / red banner</span>
       </div>
+      <div class="grid">
+        <div><h4>The problem</h4><p>Fake omnibus portals, ticket scalping and fake operator listings in South Chennai. Tools like redBus protect only their own bookings, and Truecaller or the 1930 helpline help after contact or loss. Nothing stopped a passenger before paying.</p></div>
+        <div><h4>What I built</h4><p>Eight checks: domain age, SSL, look-alike domains, contact info, payment gateway, operator registry, GST/PAN and vehicle registration, combined into a weighted risk score. On top: a Random Forest second opinion, Google Safe Browsing, Claude analysis, signed QR tickets, a scalping-risk check and a user reporting channel with an admin-approved ban list.</p></div>
+        <div><h4>Jury rounds</h4><p>Round 1: “it looks like a lookup table”, so we added machine learning and unified all five components. Final round: “anyone can copy an API key from an extension”, so we moved every key and call to the backend. The lesson: anything shipped in an extension is public.</p></div>
+        <div><h4>Problems I fixed</h4><p>A genuine site (redbus.com) was flagged high risk, fixed with a redirect check. Slow similarity checks were replaced with faster text matching. Python and library setup issues cost hours.</p></div>
+        <div class="wide"><h4>Honest limits</h4><p>The Random Forest was trained on synthetic data, so its accuracy says nothing about the real world. The operator list comes from a tourism registry, not RTO permit data. No detector is perfect, which is why users can report sites.</p></div>
+      </div>
+      <p class="chips"><span>Python</span><span>Flask</span><span>Chrome Extension</span><span>Random Forest</span><span>Claude API</span><span>Google Safe Browsing</span><span>WHOIS</span><span>RSA signatures</span></p>
     </article>
 
-    <article class="project">
-      <div class="meta">
+    <article class="project reveal">
+      <div class="head">
         <h3>PlantCare</h3>
-        <p>Crop disease detection app that works offline</p>
-        <span class="tag">Smart India Hackathon 2026 · Team Leader · Team of 6</span>
+        <span class="tag">Smart India Hackathon 2026 · SIH26131 · Team Leader (team of 6)</span>
       </div>
-      <div class="body">
-        <ul>
-          <li>A farmer photographs a leaf and gets the disease name and remedy in seconds, spoken in their regional language.</li>
-          <li>Trained a MobileNetV2 transfer-learning model on PlantVillage (54,000+ images) that reached 93% accuracy across 38 classes.</li>
-          <li>Fixed a 36x class imbalance with class-weighted loss and added rotate, zoom and flip augmentation.</li>
-          <li>Asks for a clearer photo when confidence is below 60% instead of giving an unreliable answer.</li>
-          <li>Converted the model to TensorFlow Lite so detection runs on the phone without internet.</li>
-        </ul>
-        <p class="chips"><span>Python</span><span>TensorFlow</span><span>MobileNetV2</span><span>TensorFlow Lite</span></p>
-        <p class="links"><a href="https://github.com/Karthi248/plantcare" target="_blank" rel="noopener">View on GitHub</a></p>
+      <p class="sum">Crop disease detection that works offline: photograph a leaf, hear the disease and remedy in your own language.</p>
+      <div class="flow">
+        <span>Leaf photo</span><b>→</b><span>MobileNetV2 (TFLite)</span><b>→</b><span>Confidence check</span><b>→</b><span>Remedy database</span><b>→</b><span>Regional voice</span>
       </div>
+      <div class="grid">
+        <div><h4>The problem</h4><p>Farmers lose 15–30% of yield to diseases found too late. Many rural and elderly farmers cannot use English-only apps, and expert help can mean waiting for an officer’s visit.</p></div>
+        <div><h4>What I built</h4><p>A MobileNetV2 transfer-learning model (frozen base, Dense 128, Dropout, softmax) trained on PlantVillage, 54,000+ images, reaching 93% accuracy across 38 disease classes. Converted to TensorFlow Lite so detection runs on the phone with no internet.</p></div>
+        <div><h4>Making it reliable</h4><p>Some diseases had 36 times fewer images than others, so I used class-weighted loss instead of duplicating images, plus rotate, zoom and flip augmentation. Below 60% confidence the app asks for a clearer photo instead of guessing.</p></div>
+        <div><h4>Built for the farmer</h4><p>Disease names, remedies and prevention tips are spoken in the regional language, and remedies come from a local database, so it works for low-literacy users with a basic phone.</p></div>
+        <div class="wide"><h4>Honest limits</h4><p>PlantVillage is mostly lab-style photos, so field accuracy is still unproven. Next steps: real Indian field images, crops like rice, cotton and sugarcane, and checking languages and remedies with native speakers and agricultural experts.</p></div>
+      </div>
+      <p class="chips"><span>Python</span><span>TensorFlow</span><span>MobileNetV2</span><span>TensorFlow Lite</span><span>Transfer learning</span><span>Text-to-speech</span></p>
     </article>
 
-    <article class="project">
-      <div class="meta">
+    <article class="project reveal">
+      <div class="head">
         <h3>Rice Type Classification</h3>
-        <p>Machine learning comparison on grain-shape data</p>
         <span class="tag">Seminar project</span>
       </div>
-      <div class="body">
-        <ul>
-          <li>Predicted rice type from 10 grain-shape features by comparing 6 classifiers.</li>
-          <li>SVM performed best, at 99.04% cross-validated accuracy.</li>
-        </ul>
-        <p class="chips"><span>Python</span><span>scikit-learn</span><span>SVM</span></p>
-        <p class="links"><a href="https://github.com/Karthi248/rice-classification" target="_blank" rel="noopener">View on GitHub</a></p>
+      <p class="sum">Predicting rice type from grain-shape measurements, comparing six machine learning models.</p>
+      <div class="flow">
+        <span>18,185 grains</span><b>→</b><span>Scale features</span><b>→</b><span>6 models</span><b>→</b><span>5-fold CV</span><b>→</b><span>SVM: 99.04%</span>
       </div>
+      <div class="grid">
+        <div><h4>The data</h4><p>18,185 rice grains, each with 10 shape features such as area, axis lengths, roundness and aspect ratio. Class 0 has 8,200 grains and Class 1 has 9,985.</p></div>
+        <div><h4>The method</h4><p>Explored the data with boxplots, violin plots, a correlation heatmap and PCA, then split 80/20. The scaler was fit on training data only so no test data leaks in. Compared SVM, Random Forest, Logistic Regression, KNN, Decision Tree and Naive Bayes.</p></div>
+        <div><h4>The result</h4><p>SVM was best at 99.04% cross-validated accuracy, and it classified 3,597 of 3,637 test grains correctly. All six models scored above 98%.</p></div>
+        <div><h4>What I found</h4><p>Roundness mattered most by far, and Extent added almost nothing. Area, ConvexArea and EquivDiameter are almost perfectly correlated, so some features are redundant.</p></div>
+        <div class="wide"><h4>Honest limits</h4><p>The features were already extracted from images, and every model scored above 98%, so this shows the classes are easy to separate, not how it would do on raw images or another dataset.</p></div>
+      </div>
+      <p class="chips"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>SVM</span><span>Matplotlib</span><span>Seaborn</span></p>
+      <p class="links"><a href="https://github.com/Karthi248/rice-classification" target="_blank" rel="noopener">View on GitHub →</a></p>
     </article>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-      <div>
-        <h3>Programming</h3>
-        <p class="chips"><span>Python</span><span>C</span><span>Java (basics)</span></p>
-      </div>
-      <div>
-        <h3>AI and tools</h3>
-        <p class="chips"><span>scikit-learn</span><span>TensorFlow</span><span>Flask</span><span>Git and GitHub</span></p>
-      </div>
-      <div>
-        <h3>Soft skills</h3>
-        <p class="chips"><span>Communication</span><span>Problem solving</span><span>Team coordination</span><span>Leadership</span></p>
-      </div>
+    <h2 class="reveal">Skills</h2>
+    <div class="skill-grid reveal">
+      <div><h3>Programming</h3><p class="chips"><span>C</span><span>Python</span><span>Java (basics)</span></p></div>
+      <div><h3>Soft skills</h3><p class="chips"><span>Communication</span><span>Problem solving</span><span>Team coordination</span><span>Leadership</span></p></div>
     </div>
   </section>
 
   <section id="education">
-    <h2>Education and activities</h2>
+    <h2 class="reveal">Education and activities</h2>
     <ul class="timeline">
-      <li>
-        <time>Expected 2029</time>
-        <h3>B.E. Computer Science and Engineering</h3>
-        <p>Government College of Technology, Coimbatore · 2nd year · CGPA 9.32</p>
-      </li>
-      <li>
-        <time>2024 – 2025</time>
-        <h3>HSC (12th)</h3>
-        <p>Oasis Matriculation Higher Secondary School · 96.6%</p>
-      </li>
-      <li>
-        <time>Jul – Aug 2026</time>
-        <h3>Python for Data Science</h3>
-        <p>NPTEL (IIT Madras) · Elite certificate · Score 84%</p>
-      </li>
-      <li>
-        <time>Aug 2026</time>
-        <h3>FLY-Scholar (Finding the Leader in You)</h3>
-        <p>Competitiveness Mindset Institute, USA</p>
-      </li>
-      <li>
-        <time>Ongoing</time>
-        <h3>Clubs and volunteering</h3>
-        <p>Member, gSARC (Team ETA) · Volunteer, National Service Scheme (NSS), Government College of Technology</p>
-      </li>
+      <li class="reveal"><time>Expected 2029</time><h3>B.E. Computer Science and Engineering</h3><p>Government College of Technology, Coimbatore · 2nd year · CGPA 9.32</p></li>
+      <li class="reveal"><time>2024 – 2025</time><h3>HSC (12th)</h3><p>Oasis Matriculation Higher Secondary School · 96.6%</p></li>
+      <li class="reveal"><time>Jul – Aug 2026</time><h3>Python for Data Science</h3><p>NPTEL (IIT Madras) · Elite certificate · Score 84%</p></li>
+      <li class="reveal"><time>Aug 2026</time><h3>FLY-Scholar (Finding the Leader in You)</h3><p>Competitiveness Mindset Institute, USA</p></li>
+      <li class="reveal"><time>Ongoing</time><h3>Clubs and volunteering</h3><p>Member, gSARC (Team ETA) · Volunteer, National Service Scheme (NSS), Government College of Technology</p></li>
     </ul>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p class="lead">I'm open to internships, hackathon teams and project collaborations. Email me and I'll reply soon.</p>
-    <div class="actions">
+    <h2 class="reveal">Contact</h2>
+    <p class="lead reveal">Open to internships, hackathon teams and project collaborations.</p>
+    <div class="actions reveal">
       <a class="btn primary" href="mailto:karthickpadmavathi10@gmail.com">Email me</a>
       <a class="btn" href="https://github.com/Karthi248" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/karthick-k-791883380" target="_blank" rel="noopener">LinkedIn</a>
@@ -164,10 +134,7 @@
   </section>
 </main>
 
-<footer>
-  <p>© <span id="year"></span> Karthick K · Coimbatore, Tamil Nadu</p>
-</footer>
-
+<footer><p>© <span id="year"></span> Karthick K · Coimbatore, Tamil Nadu</p></footer>
 <script src="script.js"></script>
 </body>
 </html>
