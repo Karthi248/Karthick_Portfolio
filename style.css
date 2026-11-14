@@ -108,6 +108,16 @@ h2 { font-size:1.8rem; font-weight:600; margin-bottom:14px; }
 
 footer { margin-top:80px; padding-top:24px; padding-bottom:32px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
 
+/* Certifications */
+.cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr)); gap:18px; }
+.cert { padding:20px; background:rgba(11,22,48,.72); border:1px solid var(--line); border-radius:12px; transition:opacity .7s ease,transform .3s ease,border-color .3s; }
+.cert:hover { transform:translateY(-3px); border-color:#2d4a86; }
+.cert time { display:block; color:var(--soft); font-size:.85rem; margin-bottom:4px; }
+.cert h3 { font-size:1.05rem; margin-bottom:4px; }
+.cert .by { color:var(--muted); font-size:.9rem; margin-bottom:8px; }
+.cert p:not(.by) { color:#d6def0; font-size:.92rem; }
+.cert .badge { display:inline-block; margin-top:12px; font-size:.78rem; color:var(--soft); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:2px 11px; }
+
 @media (max-width:720px) {
   .menu-btn { display:block; }
   .nav nav { display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; background:var(--bg); border-bottom:1px solid var(--line); }
@@ -122,13 +132,3 @@ footer { margin-top:80px; padding-top:24px; padding-bottom:32px; border-top:1px 
   *,*::before,*::after { animation:none !important; transition:none !important; }
   .reveal { opacity:1; transform:none; }
 }
-
-/* Certifications */
-.cert-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; }
-.cert { padding:20px; background:rgba(11,22,48,.72); border:1px solid var(--line); border-radius:12px; transition:opacity .7s ease,transform .3s ease,border-color .3s; }
-.cert:hover { transform:translateY(-3px); border-color:#2d4a86; }
-.cert time { display:block; color:var(--soft); font-size:.85rem; margin-bottom:4px; }
-.cert h3 { font-size:1.05rem; margin-bottom:4px; }
-.cert .by { color:var(--muted); font-size:.9rem; margin-bottom:8px; }
-.cert p:not(.by) { color:#d6def0; font-size:.92rem; }
-.cert .badge { display:inline-block; margin-top:12px; font-size:.78rem; color:var(--soft); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:2px 11px; }
